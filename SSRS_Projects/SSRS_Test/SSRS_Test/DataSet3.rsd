@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet3">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText> SELECT NON EMPTY { [Measures].[Fact Book Loan Count] } ON COLUMNS, NON EMPTY { ([Dim Faculty].[Faculty Name].[Faculty Name].ALLMEMBERS * [Dim Group].[Group Name].[Group Name].ALLMEMBERS * [Dim Student].[Full Name].[Full Name].ALLMEMBERS * [Dim Book].[Title].[Title].ALLMEMBERS * [Dim Book].[Author].[Author].ALLMEMBERS * [Loan Time].[Full Date].[Full Date].ALLMEMBERS * [Return Time].[Full Date].[Full Date].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [Dim Group].[Group Name].&amp;[CS-11], [Dim Group].[Group Name].&amp;[CS-12], [Dim Group].[Group Name].&amp;[CS-13], [Dim Group].[Group Name].&amp;[CS-14], [Dim Group].[Group Name].&amp;[CS-21], [Dim Group].[Group Name].&amp;[CS-22], [Dim Group].[Group Name].&amp;[CS-23], [Dim Group].[Group Name].&amp;[CS-24], [Dim Group].[Group Name].&amp;[CS-31], [Dim Group].[Group Name].&amp;[CS-32], [Dim Group].[Group Name].&amp;[CS-33], [Dim Group].[Group Name].&amp;[CS-34], [Dim Group].[Group Name].&amp;[CS-41], [Dim Group].[Group Name].&amp;[CS-42], [Dim Group].[Group Name].&amp;[CS-43], [Dim Group].[Group Name].&amp;[CS-44] } ) ON COLUMNS FROM ( SELECT ( { [Dim Faculty].[Faculty Name].[All] } ) ON COLUMNS FROM [Deanery DW])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Faculty</DimensionName>
+                    <HierarchyName>Faculty Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Faculty].[Faculty Name]</HierarchyUniqueName>
+                    <LevelName>Faculty Name</LevelName>
+                    <UniqueName>[Dim Faculty].[Faculty Name].[Faculty Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Faculty Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Group</DimensionName>
+                    <HierarchyName>Group Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Group].[Group Name]</HierarchyUniqueName>
+                    <LevelName>Group Name</LevelName>
+                    <UniqueName>[Dim Group].[Group Name].[Group Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Group Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Student</DimensionName>
+                    <HierarchyName>Full Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Student].[Full Name]</HierarchyUniqueName>
+                    <LevelName>Full Name</LevelName>
+                    <UniqueName>[Dim Student].[Full Name].[Full Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Full Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Book</DimensionName>
+                    <HierarchyName>Title</HierarchyName>
+                    <HierarchyUniqueName>[Dim Book].[Title]</HierarchyUniqueName>
+                    <LevelName>Title</LevelName>
+                    <UniqueName>[Dim Book].[Title].[Title]</UniqueName>
+                  </ID>
+                  <ItemCaption>Title</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Book</DimensionName>
+                    <HierarchyName>Author</HierarchyName>
+                    <HierarchyUniqueName>[Dim Book].[Author]</HierarchyUniqueName>
+                    <LevelName>Author</LevelName>
+                    <UniqueName>[Dim Book].[Author].[Author]</UniqueName>
+                  </ID>
+                  <ItemCaption>Author</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Loan Time</DimensionName>
+                    <HierarchyName>Full Date</HierarchyName>
+                    <HierarchyUniqueName>[Loan Time].[Full Date]</HierarchyUniqueName>
+                    <LevelName>Full Date</LevelName>
+                    <UniqueName>[Loan Time].[Full Date].[Full Date]</UniqueName>
+                  </ID>
+                  <ItemCaption>Full Date</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Return Time</DimensionName>
+                    <HierarchyName>Full Date</HierarchyName>
+                    <HierarchyUniqueName>[Return Time].[Full Date]</HierarchyUniqueName>
+                    <LevelName>Full Date</LevelName>
+                    <UniqueName>[Return Time].[Full Date].[Full Date]</UniqueName>
+                  </ID>
+                  <ItemCaption>Full Date</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>Fact Book Loan Count</MeasureName>
+                    <UniqueName>[Measures].[Fact Book Loan Count]</UniqueName>
+                  </ID>
+                  <ItemCaption>Fact Book Loan Count</ItemCaption>
+                  <BackColor>true</BackColor>
+                  <ForeColor>true</ForeColor>
+                  <FontFamily>true</FontFamily>
+                  <FontSize>true</FontSize>
+                  <FontWeight>true</FontWeight>
+                  <FontStyle>true</FontStyle>
+                  <FontDecoration>true</FontDecoration>
+                  <FormattedValue>true</FormattedValue>
+                  <FormatString>true</FormatString>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Deanery DW</From>
+            <Filter>
+              <FilterItems>
+                <FilterItem>
+                  <HierarchyUniqueName>[Dim Faculty].[Faculty Name]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].[All]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+                <FilterItem>
+                  <HierarchyUniqueName>[Dim Group].[Group Name]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-11]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-12]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-13]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-14]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-21]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-22]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-23]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-24]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-31]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-32]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-33]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-34]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-41]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-42]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-43]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].&amp;[CS-44]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+              </FilterItems>
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
+          </QuerySpecification>
+          <Query>
+            <Statement> SELECT NON EMPTY { [Measures].[Fact Book Loan Count] } ON COLUMNS, NON EMPTY { ([Dim Faculty].[Faculty Name].[Faculty Name].ALLMEMBERS * [Dim Group].[Group Name].[Group Name].ALLMEMBERS * [Dim Student].[Full Name].[Full Name].ALLMEMBERS * [Dim Book].[Title].[Title].ALLMEMBERS * [Dim Book].[Author].[Author].ALLMEMBERS * [Loan Time].[Full Date].[Full Date].ALLMEMBERS * [Return Time].[Full Date].[Full Date].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [Dim Group].[Group Name].&amp;[CS-11], [Dim Group].[Group Name].&amp;[CS-12], [Dim Group].[Group Name].&amp;[CS-13], [Dim Group].[Group Name].&amp;[CS-14], [Dim Group].[Group Name].&amp;[CS-21], [Dim Group].[Group Name].&amp;[CS-22], [Dim Group].[Group Name].&amp;[CS-23], [Dim Group].[Group Name].&amp;[CS-24], [Dim Group].[Group Name].&amp;[CS-31], [Dim Group].[Group Name].&amp;[CS-32], [Dim Group].[Group Name].&amp;[CS-33], [Dim Group].[Group Name].&amp;[CS-34], [Dim Group].[Group Name].&amp;[CS-41], [Dim Group].[Group Name].&amp;[CS-42], [Dim Group].[Group Name].&amp;[CS-43], [Dim Group].[Group Name].&amp;[CS-44] } ) ON COLUMNS FROM ( SELECT ( { [Dim Faculty].[Faculty Name].[All] } ) ON COLUMNS FROM [Deanery DW])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Faculty_Name">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Faculty].[Faculty Name].[Faculty Name]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Group_Name">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Group].[Group Name].[Group Name]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Full_Name">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Student].[Full Name].[Full Name]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Title">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Book].[Title].[Title]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Author">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Book].[Author].[Author]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Full_Date">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Loan Time].[Full Date].[Full Date]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Full_Date2">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Return Time].[Full Date].[Full Date]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Fact_Book_Loan_Count">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Fact Book Loan Count]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

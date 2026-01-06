@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet5">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>WITH MEMBER [Measures].[Grade] AS IIF(
+    [Measures].[Fact Grade Count] = 0,
+    NULL,
+    [Measures].[Grade Value] / [Measures].[Fact Grade Count]
+)
+ SELECT NON EMPTY { [Measures].[Grade] } ON COLUMNS, NON EMPTY { ([Dim Faculty].[Faculty Name].[Faculty Name].ALLMEMBERS * [Dim Group].[Group Name].[Group Name].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [Dim Group].[Group Name].[All] } ) ON COLUMNS FROM ( SELECT ( { [Dim Faculty].[Faculty Name].[All], [Dim Faculty].[Faculty Name].[All].UNKNOWNMEMBER, [Dim Faculty].[Faculty Name].&amp;[Unknown Faculty], [Dim Faculty].[Faculty Name].&amp;[Medicine], [Dim Faculty].[Faculty Name].&amp;[Law], [Dim Faculty].[Faculty Name].&amp;[Humanities], [Dim Faculty].[Faculty Name].&amp;[Engineering], [Dim Faculty].[Faculty Name].&amp;[Economics], [Dim Faculty].[Faculty Name].&amp;[Computer Science] } ) ON COLUMNS FROM [Deanery DW])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>MDX</CommandType>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Faculty</DimensionName>
+                    <HierarchyName>Faculty Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Faculty].[Faculty Name]</HierarchyUniqueName>
+                    <LevelName>Faculty Name</LevelName>
+                    <UniqueName>[Dim Faculty].[Faculty Name].[Faculty Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Faculty Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Group</DimensionName>
+                    <HierarchyName>Group Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Group].[Group Name]</HierarchyUniqueName>
+                    <LevelName>Group Name</LevelName>
+                    <UniqueName>[Dim Group].[Group Name].[Group Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Group Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Measure">
+                    <MeasureName>Grade</MeasureName>
+                    <UniqueName>[Measures].[Grade]</UniqueName>
+                  </ID>
+                  <ItemCaption>Grade</ItemCaption>
+                  <BackColor>true</BackColor>
+                  <ForeColor>true</ForeColor>
+                  <FontFamily>true</FontFamily>
+                  <FontSize>true</FontSize>
+                  <FontWeight>true</FontWeight>
+                  <FontStyle>true</FontStyle>
+                  <FontDecoration>true</FontDecoration>
+                  <FormattedValue>true</FormattedValue>
+                  <FormatString>true</FormatString>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>Deanery DW</From>
+            <Filter>
+              <FilterItems>
+                <FilterItem>
+                  <HierarchyUniqueName>[Dim Faculty].[Faculty Name]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].[All]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].[All].UNKNOWNMEMBER</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Unknown Faculty]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Medicine]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Law]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Humanities]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Engineering]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Economics]</MemberUniqueName>
+                      </Member>
+                      <Member>
+                        <MemberUniqueName>[Dim Faculty].[Faculty Name].&amp;[Computer Science]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+                <FilterItem>
+                  <HierarchyUniqueName>[Dim Group].[Group Name]</HierarchyUniqueName>
+                  <Condition xsi:type="EqualTo">
+                    <Members>
+                      <Member>
+                        <MemberUniqueName>[Dim Group].[Group Name].[All]</MemberUniqueName>
+                      </Member>
+                    </Members>
+                  </Condition>
+                </FilterItem>
+              </FilterItems>
+            </Filter>
+            <Calculations>
+              <Calculation>
+                <ID>[Grade]</ID>
+                <Name>Grade</Name>
+                <ParentUniqueName>[Measures]</ParentUniqueName>
+                <Expression>IIF(
+    [Measures].[Fact Grade Count] = 0,
+    NULL,
+    [Measures].[Grade Value] / [Measures].[Fact Grade Count]
+)
+</Expression>
+              </Calculation>
+            </Calculations>
+            <Aggregates />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
+          </QuerySpecification>
+          <Query>
+            <Statement>WITH MEMBER [Measures].[Grade] AS IIF(
+    [Measures].[Fact Grade Count] = 0,
+    NULL,
+    [Measures].[Grade Value] / [Measures].[Fact Grade Count]
+)
+ SELECT NON EMPTY { [Measures].[Grade] } ON COLUMNS, NON EMPTY { ([Dim Faculty].[Faculty Name].[Faculty Name].ALLMEMBERS * [Dim Group].[Group Name].[Group Name].ALLMEMBERS ) } DIMENSION PROPERTIES MEMBER_CAPTION, MEMBER_VALUE, MEMBER_UNIQUE_NAME ON ROWS FROM ( SELECT ( { [Dim Group].[Group Name].[All] } ) ON COLUMNS FROM ( SELECT ( { [Dim Faculty].[Faculty Name].[All], [Dim Faculty].[Faculty Name].[All].UNKNOWNMEMBER, [Dim Faculty].[Faculty Name].&amp;[Unknown Faculty], [Dim Faculty].[Faculty Name].&amp;[Medicine], [Dim Faculty].[Faculty Name].&amp;[Law], [Dim Faculty].[Faculty Name].&amp;[Humanities], [Dim Faculty].[Faculty Name].&amp;[Engineering], [Dim Faculty].[Faculty Name].&amp;[Economics], [Dim Faculty].[Faculty Name].&amp;[Computer Science] } ) ON COLUMNS FROM [Deanery DW])) CELL PROPERTIES VALUE, BACK_COLOR, FORE_COLOR, FORMATTED_VALUE, FORMAT_STRING, FONT_NAME, FONT_SIZE, FONT_FLAGS</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Faculty_Name">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Faculty].[Faculty Name].[Faculty Name]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Group_Name">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Level" UniqueName="[Dim Group].[Group Name].[Group Name]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Grade">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Measure" UniqueName="[Measures].[Grade]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
